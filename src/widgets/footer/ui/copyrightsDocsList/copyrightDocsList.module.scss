@@ -1,0 +1,21 @@
+.copyrightDocsList {
+  display: flex;
+}
+
+.copyrightDoc {
+  padding: 0 16px;
+
+  transition: border-color 0.2s linear;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:not(:first-child) {
+    border-left: 1px solid var(--fourth-bg-color);
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+}

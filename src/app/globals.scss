@@ -1,0 +1,17 @@
+@use '@/shared/styles' as styles;
+
+:root {
+  @include styles.light-theme;
+}
+
+.dark-theme {
+  @include styles.dark-theme;
+}
+
+body {
+  background-color: var(--first-bg-color);
+
+  color: var(--first-typography-color);
+
+  transition: background-color 0.2s linear;
+}

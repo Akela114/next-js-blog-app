@@ -1,0 +1,21 @@
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.groupTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--third-typography-color);
+}
+
+.linkList {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  color: var(--sixth-typography-color);
+}

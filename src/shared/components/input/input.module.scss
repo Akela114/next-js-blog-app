@@ -1,0 +1,29 @@
+.inputWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: var(--first-bg-color);
+  padding: 12px 14px 12px 16px;
+  border: 1px solid var(--eighth-bg-color);
+  border-radius: 6px;
+
+  transition: all 0.2s linear;
+}
+
+.input {
+  width: 100%;
+
+  &::placeholder {
+    color: var(--first-permanent-typography-color);
+  }
+}
+
+.inputIcon {
+  flex-shrink: 0;
+
+  width: 20px;
+  height: 20px;
+
+  fill: var(--first-permanent-typography-color);
+}

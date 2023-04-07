@@ -1,0 +1,43 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  background-color: var(--fifth-bg-color);
+  padding: 32px 36px;
+  border-radius: 12px;
+
+  transition: background-color 0.2s linear;
+}
+
+.cardTopSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 0 15px;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--third-typography-color);
+}
+
+.cardDescription {
+  color: var(--fourth-typography-color);
+}
+
+.cardForm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  min-width: 320px;
+
+  @media (max-width: 1190px) {
+    min-width: auto;
+  }
+}

@@ -1,0 +1,30 @@
+.searchWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 8px 10px 8px 16px;
+  background-color: var(--third-bg-color);
+  border-radius: 5px;
+
+  transition: background-color 0.2s linear;
+}
+
+.searchInput {
+  width: 100%;
+  font-size: 14px;
+
+  &::placeholder {
+    color: var(--second-permanent-typography-color);
+  }
+}
+
+.searchIcon {
+  flex-shrink: 0;
+
+  width: 20px;
+  height: 20px;
+
+  fill: var(--sixth-permanent-typography-color);
+}

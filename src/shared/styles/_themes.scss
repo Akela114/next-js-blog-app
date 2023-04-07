@@ -1,0 +1,50 @@
+@use './utilities/variables' as vars;
+
+@mixin light-theme {
+  --first-permanent-box-shadow: 0px 12px 24px -6px #{vars.$color-black-second-transparent};
+  --second-permanent-box-shadow: 0px 1px 2px #{vars.$color-black-fourth-transparent};
+  --first-permanent-bg-color: #{vars.$color-gray-fourth-transparent};
+  --second-permanent-bg-color: #{vars.$color-white-third};
+  --permanent-first-tag-color: #{vars.$color-blue};
+  --permanent-second-tag-color: #{vars.$color-blue-transparent};
+  --first-permanent-typography-color: #{vars.$color-gray-third};
+  --second-permanent-typography-color: #{vars.$color-gray-second};
+  --third-permanent-typography-color: #{vars.$color-gray-fourth};
+  --fourth-permanent-typography-color: #{vars.$color-gray-sixth};
+  --fifth-permanent-typography-color: #{vars.$color-white-first};
+  --sixth-permanent-typography-color: #{vars.$color-gray-ninth};
+
+  --logo-color: #{vars.$color-black-third};
+  --first-bg-color: #{vars.$color-white-first};
+  --second-bg-color: #{vars.$color-white-third};
+  --third-bg-color: #{vars.$color-white-second};
+  --fourth-bg-color: #{vars.$color-white-third};
+  --fifth-bg-color: #{vars.$color-white-first};
+  --sixth-bg-color: #{vars.$color-gray-fourth};
+  --seventh-bg-color: #{vars.$color-white-fourth};
+  --eighth-bg-color: #{vars.$color-white-fifth};
+  --first-typography-color: #{vars.$color-gray-sixth};
+  --second-typography-color: #{vars.$color-gray-fifth};
+  --third-typography-color: #{vars.$color-black-second};
+  --fourth-typography-color: #{vars.$color-gray-fourth};
+  --fifth-typography-color: #{vars.$color-gray-sixth};
+  --sixth-typography-color: #{vars.$color-gray-sixth};
+}
+
+@mixin dark-theme {
+  --logo-color: #{vars.$color-white-first};
+  --first-bg-color: #{vars.$color-black-second};
+  --second-bg-color: #{vars.$color-blue};
+  --third-bg-color: #{vars.$color-black-first};
+  --fourth-bg-color: #{vars.$color-black-first};
+  --fifth-bg-color: #{vars.$color-black-first};
+  --sixth-bg-color: #{vars.$color-gray-third};
+  --seventh-bg-color: #{vars.$color-black-third};
+  --eighth-bg-color: #{vars.$color-gray-sixth};
+  --first-typography-color: #{vars.$color-white-first};
+  --second-typography-color: #{vars.$color-gray-fifth};
+  --third-typography-color: #{vars.$color-white-first};
+  --fourth-typography-color: #{vars.$color-gray-third};
+  --fifth-typography-color: #{vars.$color-gray-third};
+  --sixth-typography-color: #{vars.$color-gray-first};
+}

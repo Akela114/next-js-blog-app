@@ -1,0 +1,33 @@
+.app {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.appWithNoFooter {
+  align-self: stretch;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  margin: 0 auto;
+  max-width: calc(1216px + 64px);
+  padding: 32px 32px 0;
+}
+
+.mainContent {
+  flex: 1;
+  margin-top: 56px;
+  margin-bottom: 100px;
+
+  // to remove
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  font-size: 20px;
+}
