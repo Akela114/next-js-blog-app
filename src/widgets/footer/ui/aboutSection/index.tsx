@@ -10,11 +10,11 @@ const AboutSection = () => (
     </p>
     <footer>
       <ul>
-        <li>
+        <li className={styles.aboutItem}>
           <span className={styles.aboutItemName}>Email :</span>{' '}
           info@jstemplate.net
         </li>
-        <li>
+        <li className={styles.aboutItem}>
           <span className={styles.aboutItemName}>Phone :</span> 880 123 456 789
         </li>
       </ul>

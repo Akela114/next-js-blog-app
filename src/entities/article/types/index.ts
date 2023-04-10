@@ -1,9 +1,3 @@
-export interface IArticleAuthor {
-  id: number
-  name: string
-  avatar: string
-}
-
 export interface IArticleSection {
   title?: string
   paragraphs: string[]
@@ -17,6 +11,6 @@ export interface IArticle {
   title: string
   tag: string
   image: string
-  authorId: string
+  authorId: number
   content: IArticleSection[]
 }

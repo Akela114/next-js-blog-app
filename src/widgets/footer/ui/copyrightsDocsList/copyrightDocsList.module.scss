@@ -1,5 +1,10 @@
 .copyrightDocsList {
   display: flex;
+
+  @media (max-width: 390px) {
+    flex-direction: column;
+    gap: 4px;
+  }
 }
 
 .copyrightDoc {
@@ -17,5 +22,23 @@
 
   &:last-child {
     padding-right: 0;
+  }
+
+  @media (max-width: 390px) {
+    text-align: center;
+    padding: 4px 16px;
+
+    &:first-child {
+      padding-left: 16px;
+    }
+
+    &:not(:first-child) {
+      border-left: none;
+      border-top: 1px solid var(--fourth-bg-color);
+    }
+
+    &:last-child {
+      padding-right: 16px;
+    }
   }
 }

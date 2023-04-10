@@ -1,0 +1,31 @@
+.placeholderCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+
+  background-color: var(--fourth-bg-color);
+  padding: 15px;
+  border-radius: 12px;
+  width: 100%;
+
+  color: var(--third-permanent-typography-color);
+
+  transition: background-color 0.2s linear;
+}
+
+.advertisementTitle {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.advertisementDescription {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.advertisementOptions {
+  font-size: 18px;
+  font-weight: 400;
+}

@@ -11,6 +11,11 @@
   color: var(--fourth-typography-color);
 }
 
+.aboutItem {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .aboutItemName {
   color: var(--third-typography-color);
   font-weight: 600;
