@@ -1,17 +1,22 @@
+export interface IArticleAuthor {
+  id: number
+  name: string
+  avatar: string
+}
+
 export interface IArticleSection {
-  title: string
+  title?: string
   paragraphs: string[]
   comment?: string
   image?: string
 }
 
 export interface IArticle {
+  id: number
+  date: string
   title: string
   tag: string
   image: string
-  author: {
-    name: string
-    avatar: string
-  }
+  authorId: string
   content: IArticleSection[]
 }
