@@ -1,0 +1,25 @@
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 56px;
+  margin-bottom: 100px;
+}
+
+.pageHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 64px;
+}
+
+.pageTitle {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 36px;
+  color: var(--third-typography-color);
+  text-align: center;
+}

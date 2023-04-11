@@ -1,15 +1,10 @@
-import api from '@/shared/config/api'
-
-import type { IArticleAuthors } from '../types'
+import type { IArticleAuthor } from '../types'
 
 export const getAuthors = async () => {
-  const authorsRes = await api.get('/authors')
-  const authors: IArticleAuthors = {
-    items: authorsRes.data,
-    findById: function (id: number) {
-      return this.items.find(author => author.id === id)
-    },
-  }
+  const authorsRes = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/authors`
+  )
+  const authors: IArticleAuthor[] = await authorsRes.json()
 
   return authors
 }

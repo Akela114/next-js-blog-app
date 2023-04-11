@@ -3,8 +3,3 @@ export interface IArticleAuthor {
   name: string
   avatar: string
 }
-
-export interface IArticleAuthors {
-  items: IArticleAuthor[]
-  findById: (id: number) => IArticleAuthor | undefined
-}

@@ -1,12 +1,44 @@
-import api from '@/shared/config/api'
-
 import type { IArticle } from '../types'
 
-export const getArticles = async (limit?: number, page?: number) => {
-  const articlesRes = await api.get(
-    `/articles${limit && page ? `?_limit=${limit}&_page=${page}` : ''}`
+interface IGetArticlesOptions {
+  cache?: 'force-cache' | 'no-store'
+  next?: {
+    revalidate: number
+  }
+}
+
+export const getArticles = async (
+  options?: IGetArticlesOptions,
+  limit?: number,
+  searchValue?: string
+) => {
+  const articlesRes = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/articles?_sort=title,tag${
+      limit ? `&_limit=${limit}` : ''
+    }${searchValue ? `&title_like=${searchValue}` : ''}`,
+    options
   )
-  const articles: IArticle[] = articlesRes.data
+  const articles: IArticle[] = await articlesRes.json()
 
   return articles
+}
+
+export const getArticleIds = async () => {
+  const articlesRes = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/articles`
+  )
+  const articles: IArticle[] = await articlesRes.json()
+  const articlesIds = articles.map(article => ({ id: article.id.toString() }))
+
+  return articlesIds
+}
+
+export const getArticle = async (id: string, options?: IGetArticlesOptions) => {
+  const articleRes = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/articles/${id}`,
+    options
+  )
+  const article: IArticle = await articleRes.json()
+
+  return article
 }

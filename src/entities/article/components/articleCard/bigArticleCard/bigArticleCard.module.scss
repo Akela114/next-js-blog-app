@@ -3,8 +3,11 @@
 
   width: 100%;
 
-  @media (max-width: 780px) {
-    margin-bottom: 68px;
+  &.withoutCard {
+    height: 450px;
+    border-radius: 12px;
+
+    overflow: hidden;
   }
 }
 
@@ -83,6 +86,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
 
+  &.withoutCard {
+    color: var(--fifth-permanent-typography-color);
+  }
+
   @media (max-width: 780px) {
     font-size: 28px;
     line-height: 34px;
@@ -104,6 +111,10 @@
 
   font-size: 16px;
   line-height: 20px;
+
+  &.withoutCard {
+    justify-content: flex-start;
+  }
 
   @media (max-width: 780px) {
     font-size: 14px;
@@ -154,6 +165,10 @@
 
   overflow: hidden;
   text-overflow: ellipsis;
+
+  &.withoutCard {
+    color: var(--fifth-permanent-typography-color);
+  }
 }
 
 .cardDate {
@@ -169,7 +184,34 @@
   overflow: hidden;
   text-overflow: ellipsis;
 
+  &.withoutCard {
+    color: var(--fifth-permanent-typography-color);
+  }
+
   @media (max-width: 530px) {
     align-self: stretch;
+  }
+}
+
+.withoutCardContent {
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  max-width: 720px;
+
+  @media (max-width: 780px) {
+    left: 32px;
+    right: 32px;
+  }
+
+  @media (max-width: 530px) {
+    left: 24px;
+    right: 24px;
   }
 }

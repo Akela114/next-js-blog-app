@@ -1,23 +1,34 @@
 import ArticlesList from '@/features/articlesList'
-import { authorAPI } from '@/entities/author'
+import { authorAPI, authorUtils } from '@/entities/author'
 import { ArticleCard, articleAPI } from '@/entities/article'
 import AdPlaceholder from '@/shared/components/adPlaceholder'
 import Button from '@/shared/components/button'
+import { ARTICLES_INITIAL_LIMIT } from '@/shared/lib/constants'
+
+import type { Metadata } from 'next'
 
 import styles from './page.module.scss'
 
+export const metadata: Metadata = {
+  title: 'Main Page',
+  description: 'Application Main Page',
+}
+
 const MainPage = async () => {
   const [[firstArticle, ...otherArticles], authors] = await Promise.all([
-    articleAPI.getArticles(10, 1),
+    articleAPI.getArticles({ cache: 'force-cache' }, ARTICLES_INITIAL_LIMIT),
     authorAPI.getAuthors(),
   ])
 
   if (!firstArticle) return null
 
-  const firstArticleAuthor = authors.findById(firstArticle.authorId)
+  const firstArticleAuthor = authorUtils.findAuthorById(
+    authors,
+    firstArticle.authorId
+  )
   const otherArticlesTransformed = otherArticles.map(article => ({
-    article: { ...article, link: `/blog/post-${article.id}` },
-    author: authors.findById(article.authorId),
+    article: { ...article, link: `/blog/${article.id}` },
+    author: authorUtils.findAuthorById(authors, article.authorId),
   }))
 
   return (
@@ -25,7 +36,7 @@ const MainPage = async () => {
       <ArticleCard
         article={{
           ...firstArticle,
-          link: `/blog/post-${firstArticle.id}`,
+          link: `/blog/${firstArticle.id}`,
         }}
         author={firstArticleAuthor}
         variant="big"
@@ -34,7 +45,7 @@ const MainPage = async () => {
       <AdPlaceholder width="750px" height="100px" className="mb-80" />
       <ArticlesList items={otherArticlesTransformed} className="mb-32" />
       <Button className="mb-80" variant="transparent" link="/blog">
-        View All Articles
+        View All Post
       </Button>
       <AdPlaceholder width="750px" height="100px" />
     </div>
