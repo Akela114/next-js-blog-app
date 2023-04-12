@@ -8,14 +8,6 @@
   @include styles.dark-theme;
 }
 
-body {
-  background-color: var(--first-bg-color);
-
-  color: var(--first-typography-color);
-
-  transition: background-color 0.2s linear;
-}
-
 .p-sticky {
   position: sticky;
   top: 0;

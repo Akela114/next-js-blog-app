@@ -11,22 +11,8 @@ export const useLimitedArticles = (
   const [articlesLimit, setArticlesLimit] = useState(initialLimit)
   const [allArticles, setAllArticles] = useState(initialArticles)
 
-  const handleLoadArticles = useCallback(
-    async (searchValue?: string) => {
-      const articles = await articleAPI.getArticles(
-        undefined,
-        articlesLimit + initialLimit,
-        searchValue
-      )
-
-      setAllArticles(articles)
-
-      if (articles.length >= articlesLimit + initialLimit) {
-        setArticlesLimit(prevLimit => prevLimit + initialLimit)
-      }
-    },
-    [articlesLimit, initialLimit]
-  )
+  const handleIncreaseLimit = () =>
+    setArticlesLimit(prevLimit => prevLimit + initialLimit)
 
   const handleUpdateArticles = useCallback(
     async (searchValue?: string) => {
@@ -44,7 +30,7 @@ export const useLimitedArticles = (
   return {
     allArticles,
     articlesLimit,
-    handleLoadArticles,
+    handleIncreaseLimit,
     handleUpdateArticles,
   }
 }

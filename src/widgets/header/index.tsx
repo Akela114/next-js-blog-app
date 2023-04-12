@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -15,12 +16,14 @@ interface IHeaderProps {
   isThemeSwitched: boolean
   themeSwitchHandler: () => void
   withSearchBar?: boolean
+  className?: string
 }
 
 const Header = ({
   isThemeSwitched,
   themeSwitchHandler,
   withSearchBar,
+  className,
 }: IHeaderProps) => {
   const dispatch = useAppDispatch()
   const searchValue = useAppSelector(searchModel.selectors.value)
@@ -30,7 +33,7 @@ const Header = ({
   }
 
   return (
-    <header className={styles.header}>
+    <header className={classNames(styles.header, [className])}>
       <Link href="/">
         <Logo />
       </Link>

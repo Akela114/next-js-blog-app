@@ -6,3 +6,14 @@
   font-weight: 400;
   font-size: 16px;
 }
+
+.link {
+  padding: 0 4px;
+  padding-bottom: 2px;
+
+  &.active {
+    font-weight: 500;
+    color: var(--third-typography-color);
+    border-bottom: 2px solid var(--third-typography-color);
+  }
+}

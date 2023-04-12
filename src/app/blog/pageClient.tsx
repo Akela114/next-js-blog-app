@@ -2,12 +2,13 @@
 import classNames from 'classnames'
 import { useEffect } from 'react'
 
-import ArticlesList from '@/features/articlesList'
+import ArticlesList, { ArticlesListWithSorting } from '@/features/articlesList'
 import { authorUtils } from '@/entities/author'
 import { ArticleCard } from '@/entities/article'
 import { searchModel } from '@/entities/search'
 import Button from '@/shared/components/button'
 import { ARTICLES_INITIAL_LIMIT } from '@/shared/lib/constants'
+import { useDebounce } from '@/shared/lib/hooks'
 import { useAppSelector } from '@/shared/config/store/hooks'
 
 import { useLimitedArticles } from './_lib/hooks'
@@ -20,20 +21,22 @@ interface IBlogPageClient {
   authors: authorTypes.IArticleAuthor[]
 }
 
+const DEBOUNCE_DELAY = 100
+
 const BlogPageClient = ({ articles, authors }: IBlogPageClient) => {
   const {
     allArticles,
     articlesLimit,
-    handleLoadArticles,
+    handleIncreaseLimit,
     handleUpdateArticles,
   } = useLimitedArticles(ARTICLES_INITIAL_LIMIT, articles)
 
   const searchValue = useAppSelector(searchModel.selectors.value)
+  const debouncedSearchValue = useDebounce(searchValue, DEBOUNCE_DELAY)
 
   useEffect(() => {
-    handleUpdateArticles(searchValue)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchValue])
+    handleUpdateArticles(debouncedSearchValue)
+  }, [debouncedSearchValue, handleUpdateArticles])
 
   const [firstArticle, ...otherArticles] = allArticles
 
@@ -43,6 +46,7 @@ const BlogPageClient = ({ articles, authors }: IBlogPageClient) => {
     authors,
     firstArticle.authorId
   )
+
   const otherArticlesTransformed = otherArticles.map(article => ({
     article: { ...article, link: `/blog/${article.id}` },
     author: authorUtils.findAuthorById(authors, article.authorId),
@@ -61,7 +65,7 @@ const BlogPageClient = ({ articles, authors }: IBlogPageClient) => {
         variant="big-without-card"
         className="mb-100"
       />
-      <ArticlesList
+      <ArticlesListWithSorting
         items={otherArticlesTransformed}
         className={classNames({
           'mb-32': isButtonVisible,
@@ -72,7 +76,7 @@ const BlogPageClient = ({ articles, authors }: IBlogPageClient) => {
         <Button
           className="mb-80"
           variant="transparent"
-          clickHandler={() => handleLoadArticles(searchValue)}
+          clickHandler={handleIncreaseLimit}
         >
           Load More
         </Button>
