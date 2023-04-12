@@ -14,6 +14,7 @@ export interface IArticleCardProps {
   author?: {
     name: string
     avatar: string
+    link: string
   }
 }
 

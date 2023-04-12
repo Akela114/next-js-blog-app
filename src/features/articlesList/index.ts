@@ -1,3 +1,5 @@
+'use client'
+
 import ArticlesList from './ui'
 import withSorting from './hocs/withSorting'
 

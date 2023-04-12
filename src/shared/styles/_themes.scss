@@ -24,11 +24,13 @@
   --sixth-bg-color: #{vars.$color-gray-fourth};
   --seventh-bg-color: #{vars.$color-white-fourth};
   --eighth-bg-color: #{vars.$color-white-fifth};
+  --ninth-bg-color: #{vars.$color-white-fourth};
   --first-typography-color: #{vars.$color-gray-sixth};
   --third-typography-color: #{vars.$color-black-second};
   --fourth-typography-color: #{vars.$color-gray-fourth};
   --fifth-typography-color: #{vars.$color-gray-sixth};
   --sixth-typography-color: #{vars.$color-gray-sixth};
+  --seventh-typography-color: #{vars.$color-gray-fourth};
 }
 
 @mixin dark-theme {
@@ -41,9 +43,11 @@
   --sixth-bg-color: #{vars.$color-gray-third};
   --seventh-bg-color: #{vars.$color-black-third};
   --eighth-bg-color: #{vars.$color-gray-sixth};
+  --ninth-bg-color: #{vars.$color-black-first};
   --first-typography-color: #{vars.$color-white-first};
   --third-typography-color: #{vars.$color-white-first};
   --fourth-typography-color: #{vars.$color-gray-third};
   --fifth-typography-color: #{vars.$color-gray-third};
   --sixth-typography-color: #{vars.$color-gray-first};
+  --seventh-typography-color: #{vars.$color-gray-first};
 }

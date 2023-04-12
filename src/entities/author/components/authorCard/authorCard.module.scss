@@ -1,0 +1,58 @@
+.authorCardWrapper {
+  width: 100%;
+  padding: 48px 24px;
+  background-color: var(--ninth-bg-color);
+  border-radius: 12px;
+
+  transition: background-color 0.2s linear;
+}
+
+.authorCardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+
+  max-width: 668px;
+  margin: 0 auto;
+}
+
+.authorCarHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.authorAvatarWrapper {
+  position: relative;
+
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+.authorName {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  color: var(--third-typography-color);
+}
+
+.authorProfession {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--seventh-typography-color);
+}
+
+.authorDescription {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  color: var(--sixth-typography-color);
+}

@@ -15,6 +15,7 @@ interface IBigArticleCardProps {
     image: string
   }
   author?: {
+    link: string
     name: string
     avatar: string
   }
@@ -54,7 +55,9 @@ const BigArticleCard = ({
                   height={36}
                   className={styles.authorAvatar}
                 />
-                <p className={styles.authorName}>{author.name}</p>
+                <Link className={styles.authorName} href={author.link}>
+                  {author.name}
+                </Link>
               </div>
             )}
             <p className={styles.cardDate}>{article.date}</p>

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import styles from './articlePageHeader.module.scss'
 
@@ -10,6 +11,7 @@ interface IArticlePageHeaderProps {
     image: string
   }
   author?: {
+    id: number
     name: string
     avatar: string
   }
@@ -29,7 +31,9 @@ const ArticlePageHeader = ({ article, author }: IArticlePageHeaderProps) => (
             height={28}
             className={styles.authorAvatar}
           />
-          <p className={styles.authorName}>{author.name}</p>
+          <Link className={styles.authorName} href={`/authors/${author.id}`}>
+            {author.name}
+          </Link>
         </div>
       )}
       <p className={styles.articleDate}>{article.date}</p>

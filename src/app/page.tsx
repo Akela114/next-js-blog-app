@@ -26,10 +26,15 @@ const MainPage = async () => {
     authors,
     firstArticle.authorId
   )
-  const otherArticlesTransformed = otherArticles.map(article => ({
-    article: { ...article, link: `/blog/${article.id}` },
-    author: authorUtils.findAuthorById(authors, article.authorId),
-  }))
+
+  const otherArticlesTransformed = otherArticles.map(article => {
+    const author = authorUtils.findAuthorById(authors, article.authorId)
+
+    return {
+      article: { ...article, link: `/blog/${article.id}` },
+      author: author && { ...author, link: `/authors/${author.id}` },
+    }
+  })
 
   return (
     <div className={styles.pageWrapper}>
@@ -38,7 +43,12 @@ const MainPage = async () => {
           ...firstArticle,
           link: `/blog/${firstArticle.id}`,
         }}
-        author={firstArticleAuthor}
+        author={
+          firstArticleAuthor && {
+            ...firstArticleAuthor,
+            link: `/authors/${firstArticle.authorId}`,
+          }
+        }
         variant="big"
         className="mb-100"
       />

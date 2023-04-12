@@ -33,6 +33,24 @@ export const getArticleIds = async () => {
   return articlesIds
 }
 
+export const getArticlesByAuthorId = async (
+  authorId: string,
+  options?: IGetArticlesOptions,
+  limit?: number
+) => {
+  const articlesRes = await fetch(
+    `${
+      process.env.NEXT_PUBLIC_API_URL
+    }/api/articles?_sort=title,tag&authorId=${authorId}${
+      limit ? `&_limit=${limit}` : ''
+    }`,
+    options
+  )
+  const articles: IArticle[] = await articlesRes.json()
+
+  return articles
+}
+
 export const getArticle = async (id: string, options?: IGetArticlesOptions) => {
   const articleRes = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/articles/${id}`,
